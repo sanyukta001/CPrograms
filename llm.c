@@ -18,6 +18,12 @@ int main()
     add_node(&head,3,3);
     printf("After addition:\n");
     traverse(head);
+    printf("Adding after 4th node\n");
+    add_after(&head,100,4);
+    traverse(head);
+    printf("Adding before 5th node\n");
+    add_before(&head,200,5);
+    traverse(head);
 
     return 0;
 }

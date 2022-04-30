@@ -74,3 +74,41 @@ node* create_node(int value)
     }
 
  }
+
+ void add_before(node** head, int value, int n)
+ {
+    int count = 1;
+    node* current = *head;
+    while (count != n-1)
+    {
+        current = current->next;
+        count++;
+    }
+    if(count == n-1)
+    {
+        node* temp = current->next;
+        node* rec = create_node(value);
+        current->next = rec;
+        rec->next = temp;
+    }
+    
+ }
+
+ void add_after(node** head, int value, int n)
+ {
+    node* current = *head;
+    int count = 1;
+    while(count != n)
+    {
+        current = current->next;
+        count++;
+    }
+    if(count == n)
+    {
+        node* temp = current->next;
+        node* rec = create_node(value);
+        current->next = rec;
+        rec->next = temp;
+    }
+
+ }
