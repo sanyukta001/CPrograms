@@ -37,6 +37,7 @@ node* create_node(int value)
         printf("\n");
         head = head->next;
     }
+    printf("%d\n",head->data);
 
  }
 
@@ -50,49 +51,80 @@ node* create_node(int value)
         *head = (*head)->next;
         return;
     }
+    
     while(count != n-1)
     {
         current = current->next;
         count++;
     }
+
+
     if(count == n-1)
     {
         current->next = current->next->next;
+        return;
+    }
+
+    if( current->next->next = NULL)
+    {
+        current->next = NULL;
+        return;
     }
  }
 
  void add_node(node** head,int value,int n)
  {
     node* current = *head;
+    node* rec = create_node(value);
     int count = 1;
+    if(n == 1)
+    {
+        rec->next = *head;
+        *head = rec;
+        return;
+    }
+
     while(count != n-1)
     {
         current = current->next;
         count++;
     }
+
     if(count == n-1)
     {
         node *temp = current->next;
-        node* rec = create_node(value);
         current->next = rec;
         rec->next = temp;
+        return;
+    }
+
+    if(current->next = NULL)
+    {
+        current->next = rec;
+        return;
     }
 
  }
 
  void add_before(node** head, int value, int n)
  {
-    int count = 1;
+    int count = 0;
+    node* rec = create_node(value);
     node* current = *head;
-    while (count != n-1)
+    if(count == 1)
+    {
+        rec->next = current;
+        *head = rec;
+        return;
+    }
+    while (count != n-2)
     {
         current = current->next;
         count++;
     }
-    if(count == n-1)
+    if(count == n-2)
     {
         node* temp = current->next;
-        node* rec = create_node(value);
         current->next = rec;
         rec->next = temp;
     }
@@ -102,16 +134,23 @@ node* create_node(int value)
  void add_after(node** head, int value, int n)
  {
     node* current = *head;
+    node* rec = create_node(value);
     int count = 1;
     while(count != n)
     {
         current = current->next;
         count++;
     }
+
+    if(current->next == NULL)
+    {
+        current->next = rec;
+        return;
+    }
+
     if(count == n)
     {
         node* temp = current->next;
-        node* rec = create_node(value);
         current->next = rec;
         rec->next = temp;
     }

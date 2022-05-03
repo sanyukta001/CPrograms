@@ -11,11 +11,12 @@ int main()
     append(&head,5);
     append(&head,6);
 
+    printf("Original:\n");
     traverse(head);
     delete_node(&head,5);
     printf("After deletion:\n");
     traverse(head);
-    add_node(&head,3,6);
+    add_node(&head,5,5);
     printf("After addition:\n");
     traverse(head);
     printf("Adding after 4th node\n");
