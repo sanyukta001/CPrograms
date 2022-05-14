@@ -21,7 +21,7 @@ int main()
         else
             printf("%d is smallest\n",a);
     }
-    else if(c>b && c>a)
+    else //if(c>b && c>a)
     {
         printf("%d is greatest\n",c);
         if(b>a)
