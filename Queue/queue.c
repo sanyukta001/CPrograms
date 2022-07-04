@@ -36,6 +36,11 @@ void enqueue(Queue* line, int value)
 }
 int dequeue(Queue* line)
 {
+    if(line->rear == line->N-1 && line->front == line->N)
+    {
+        line->rear = -1;
+        line->front = -1;
+    }
     if(isempty(line))
     {
         printf("Que is empty\n");
