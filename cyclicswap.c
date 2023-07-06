@@ -1,6 +1,6 @@
 #include<stdio.h>
 // #include<stdlib.h>
-
+// program for cyclic swap
 void CyclicSwap(int* n1,int* n2,int* n3)
 {
     int temp = *n1;
